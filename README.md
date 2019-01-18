@@ -4,14 +4,14 @@ The Releans SDK enables developers to use Releans Services in their code. You ca
 
 ## How to Build
 
-The generated SDK requires AngularJS framework to work. If you do not already have angular downloaded, please go ahead and do it from [here](https://angularjs.org/).
+The Releans SDK requires AngularJS framework to work. If you do not already have angular downloaded, please go ahead and do it from [here](https://angularjs.org/).
 You will also need to download and link [angular-moment](https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.1/angular-moment.min.js) and [moment.js](https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js) with your project because the SDK internally uses moment.js.
 
 ## How to Use
 
-The following section describes how to use the generated SDK in an existing/new project.
+The following section describes how to use the Releans SDK in an existing/new project.
 
-### 1. Configure Angular and Generated SDK
+### 1. Configure Angular and Releans SDK
 Perform the following steps to configure angular and the SDK:
 + Make a `scripts` folder inside the root folder of the project. If you already have a `scripts` folder, skip to the next step.
 + Move the `angular.min.js` file inside the scripts folder. 
@@ -29,7 +29,7 @@ Select the folder of your SDK and click on `Select Folder` to open it up in Subl
 ![open-folder-image](https://apidocs.io/illustration/angularjs?step=openFolder&workspaceFolder=Releans-Angular)
 
 ### 3. Create an Angular Application
-Since Angular JS is used for client-side web development, in order to use the generated library, you will have to develop an application first.
+Since Angular JS is used for client-side web development, in order to use the Releans library, you will have to develop an application first.
 If you already have an angular application, [skip to Step 6](#6-include-sdk-references-in-html-file). Otherwise, follow these steps to create one:
 
 + In the IDE, click on `File` and choose `New File` to create a new file.
@@ -78,7 +78,7 @@ If any of the Custom Types that you have defined have `Date`/`Datetime` type fie
 ```
 
 ### 6. Include SDK references in HTML file
-Import the reference to the generated SDK files inside your html file like:
+Import the reference to the Releans SDK files inside your html file like:
 ```html
 <head>
     ...
@@ -138,13 +138,13 @@ You need to initialize your app and the controller associated with your view ins
 ```
 
 ### 9. Consuming the SDK 
-In order to use the generated SDK's modules, controllers and factories, the project needs to be added as a dependency in your angular app's module. This will be done inside the `app.js` file.
+In order to use the Releans SDK's modules, controllers and factories, the project needs to be added as a dependency in your angular app's module. This will be done inside the `app.js` file.
 Add the dependency like this:
 
 ```js
 var app = angular.module('myApp', ['Releans']);
 ```
-At this point, the SDK has been successfully included in your project. Further steps include using a service/factory from the generated SDK. To see working example of this, please head on [over here](#list-of-controllers) and choose any class to see its functions and example usage.  
+At this point, the SDK has been successfully included in your project. Further steps include using a service/factory from the Releans SDK. To see working example of this, please head on [over here](#list-of-controllers) and choose any class to see its functions and example usage.  
 
 ### 10. Running The App
 To run the app, simply open up the `index.html` file in a browser.
