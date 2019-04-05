@@ -2,27 +2,23 @@
 
 The Releans SDK enables developers to use Releans Services in their code. You can get started in minutes.
 
-## Create Releans Account
-
-First, [sign up for a Releans account](https://platform.releans.com/site/signup) if you don't already have one, and make a note of your API key on the dashboard API page.
-
 ## How to Build
 
-The Releans SDK requires AngularJS framework to work. If you do not already have angular downloaded, please go ahead and do it from [here](https://angularjs.org/).
+The generated SDK requires AngularJS framework to work. If you do not already have angular downloaded, please go ahead and do it from [here](https://angularjs.org/).
 You will also need to download and link [angular-moment](https://cdnjs.cloudflare.com/ajax/libs/angular-moment/1.0.1/angular-moment.min.js) and [moment.js](https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js) with your project because the SDK internally uses moment.js.
 
 ## How to Use
 
-The following section describes how to use the Releans SDK in an existing/new project.
+The following section describes how to use the generated SDK in an existing/new project.
 
-### 1. Configure Angular and Releans SDK
+### 1. Configure Angular and Generated SDK
 Perform the following steps to configure angular and the SDK:
 + Make a `scripts` folder inside the root folder of the project. If you already have a `scripts` folder, skip to the next step.
 + Move the `angular.min.js` file inside the scripts folder. 
-+ Move the `Releans` folder inside the scripts folder.
++ Move the `ReleansAPILib` folder inside the scripts folder.
 + If any of the Custom Types in your API have `Date`/`Datetime` type fields or any endpoint has `Date`/`Datetime` response, you will need to download angular-moment and moment.js. Move these 2 files into the `scripts` folder as well.
 
-![folder-structure-image](https://apidocs.io/illustration/angularjs?step=folderStructure&workspaceFolder=Releans-Angular&projectName=Releans)
+![folder-structure-image](https://apidocs.io/illustration/angularjs?step=folderStructure&workspaceFolder=Releans%20API-Angular&projectName=ReleansAPILib)
 
 ### 2. Open Project Folder
 Open an IDE/Text Editor for JavaScript like Sublime Text. The basic workflow presented here is also applicable if you prefer using a different editor or IDE.  
@@ -30,10 +26,10 @@ Click on `File` and select `Open Folder`
 
 Select the folder of your SDK and click on `Select Folder` to open it up in Sublime Text. The folder will become visible in the bar on the left.
 
-![open-folder-image](https://apidocs.io/illustration/angularjs?step=openFolder&workspaceFolder=Releans-Angular)
+![open-folder-image](https://apidocs.io/illustration/angularjs?step=openFolder&workspaceFolder=Releans%20API-Angular)
 
 ### 3. Create an Angular Application
-Since Angular JS is used for client-side web development, in order to use the Releans library, you will have to develop an application first.
+Since Angular JS is used for client-side web development, in order to use the generated library, you will have to develop an application first.
 If you already have an angular application, [skip to Step 6](#6-include-sdk-references-in-html-file). Otherwise, follow these steps to create one:
 
 + In the IDE, click on `File` and choose `New File` to create a new file.
@@ -67,7 +63,7 @@ Skip to the next step if you are working with an existing project and already ha
 </html>
 ```
 
-![initial-html-code-image](https://apidocs.io/illustration/angularjs?step=initialCode&workspaceFolder=Releans-Angular)
+![initial-html-code-image](https://apidocs.io/illustration/angularjs?step=initialCode&workspaceFolder=Releans%20API-Angular)
 
 ### 5. Including links to Angular in HTML file
 Your HTML file needs to have a link to `angular.min.js` file to use Angular-JS. Add the link using `script` tags inside the `head` section of `index.html` like:
@@ -82,30 +78,33 @@ If any of the Custom Types that you have defined have `Date`/`Datetime` type fie
 ```
 
 ### 6. Include SDK references in HTML file
-Import the reference to the Releans SDK files inside your html file like:
+Import the reference to the generated SDK files inside your html file like:
 ```html
 <head>
     ...
     <!-- Helper files -->
-    <script src="scripts/Releans/Module.js"></script>
-    <script src="scripts/Releans/Configuration.js"></script>
-    <script src="scripts/Releans/ModelFactory.js"></script>
-    <script src="scripts/Releans/ObjectMapper.js"></script>
-    <script src="scripts/Releans/APIHelper.js"></script>
-    <script src="scripts/Releans/Http/Client/HttpContext.js"></script>
-    <script src="scripts/Releans/Http/Client/HttpClient.js"></script>
-    <script src="scripts/Releans/Http/Request/HttpRequest.js"></script>
-    <script src="scripts/Releans/Http/Response/HttpResponse.js"></script>
+    <script src="scripts/ReleansAPILib/Module.js"></script>
+    <script src="scripts/ReleansAPILib/Configuration.js"></script>
+    <script src="scripts/ReleansAPILib/ModelFactory.js"></script>
+    <script src="scripts/ReleansAPILib/ObjectMapper.js"></script>
+    <script src="scripts/ReleansAPILib/APIHelper.js"></script>
+    <script src="scripts/ReleansAPILib/Http/Client/HttpContext.js"></script>
+    <script src="scripts/ReleansAPILib/Http/Client/HttpClient.js"></script>
+    <script src="scripts/ReleansAPILib/Http/Request/HttpRequest.js"></script>
+    <script src="scripts/ReleansAPILib/Http/Response/HttpResponse.js"></script>
 
     <!-- API Controllers -->
-    <script src="scripts/Releans/Controllers/BaseController.js"></script>
-    <script src="scripts/Releans/Controllers/MessageController.js"></script>
-    <script src="scripts/Releans/Controllers/SenderController.js"></script>
-    <script src="scripts/Releans/Controllers/BalanceController.js"></script>
+    <script src="scripts/ReleansAPILib/Controllers/BaseController.js"></script>
+    <script src="scripts/ReleansAPILib/Controllers/MessageController.js"></script>
+    <script src="scripts/ReleansAPILib/Controllers/SenderController.js"></script>
+    <script src="scripts/ReleansAPILib/Controllers/BalanceController.js"></script>
 
 
     <!-- Models -->
-    <script src="scripts/Releans/Models/BaseModel.js"></script>
+    <script src="scripts/ReleansAPILib/Models/BaseModel.js"></script>
+    <script src="scripts/ReleansAPILib/Models/Response2001.js"></script>
+    <script src="scripts/ReleansAPILib/Models/Response200.js"></script>
+    <script src="scripts/ReleansAPILib/Models/Response2002.js"></script>
 
     ...
 </head>
@@ -142,13 +141,13 @@ You need to initialize your app and the controller associated with your view ins
 ```
 
 ### 9. Consuming the SDK 
-In order to use the Releans SDK's modules, controllers and factories, the project needs to be added as a dependency in your angular app's module. This will be done inside the `app.js` file.
+In order to use the generated SDK's modules, controllers and factories, the project needs to be added as a dependency in your angular app's module. This will be done inside the `app.js` file.
 Add the dependency like this:
 
 ```js
-var app = angular.module('myApp', ['Releans']);
+var app = angular.module('myApp', ['ReleansAPILib']);
 ```
-At this point, the SDK has been successfully included in your project. Further steps include using a service/factory from the Releans SDK. To see working example of this, please head on [over here](#list-of-controllers) and choose any class to see its functions and example usage.  
+At this point, the SDK has been successfully included in your project. Further steps include using a service/factory from the generated SDK. To see working example of this, please head on [over here](#list-of-controllers) and choose any class to see its functions and example usage.  
 
 ### 10. Running The App
 To run the app, simply open up the `index.html` file in a browser.
@@ -160,7 +159,7 @@ To run the app, simply open up the `index.html` file in a browser.
 
 The Angular Application can be initialized as following:
 ```JavaScript
-var app = angular.module('myApp', [Releans]);
+var app = angular.module('myApp', [ReleansAPILib]);
 // now controllers/services can be created which import
 // the factories provided by the sdk
 ```
@@ -174,7 +173,7 @@ In order to setup authentication and initialization of the Angular App, you need
 
 
 ```js
-var app = angular.module('myApp', [Releans]);
+var app = angular.module('myApp', [ReleansAPILib]);
 
 app.run(function(Configuration) {
     // Configuration parameters and credentials
@@ -210,45 +209,13 @@ The singleton instance of the ``` MessageController ``` class can be accessed vi
 
 
 ```javascript
-function getAllMessages()
-```
-
-#### Example Usage
-
-```javascript
-
-
-	app.controller("testController", function($scope, MessageController){
-
-
-		var result = MessageController.getAllMessages();
-        //Function call returns a promise
-        result.then(function(success){
-			//success case
-			//getting context of response
-			console.log(success.getContext());
-		},function(err){
-			//failure case
-		});
-
-	});
-```
-
-
-
-### <a name="get_price_of_message"></a>![Method: ](https://apidocs.io/img/method.png ".MessageController.getPriceOfMessage") getPriceOfMessage
-
-> Return cost of sending a message to the number.
-
-
-```javascript
-function getPriceOfMessage(mobileNumber)
+function getAllMessages(accept)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| mobileNumber |  ``` Required ```  | Mobile number you want to know the price of sending a message. |
+| accept |  ``` Required ```  | TODO: Add a parameter description |
 
 
 
@@ -258,10 +225,10 @@ function getPriceOfMessage(mobileNumber)
 
 
 	app.controller("testController", function($scope, MessageController){
-        var mobileNumber = 'mobileNumber';
+        var accept = '*/*';
 
 
-		var result = MessageController.getPriceOfMessage(mobileNumber);
+		var result = MessageController.getAllMessages(accept);
         //Function call returns a promise
         result.then(function(success){
 			//success case
@@ -282,13 +249,14 @@ function getPriceOfMessage(mobileNumber)
 
 
 ```javascript
-function getViewMessage(id)
+function getViewMessage(id, accept)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| id |  ``` Required ```  ``` DefaultValue ```  | Id of the message you need to return its details. |
+| id |  ``` Required ```  | TODO: Add a parameter description |
+| accept |  ``` Required ```  | TODO: Add a parameter description |
 
 
 
@@ -299,9 +267,10 @@ function getViewMessage(id)
 
 	app.controller("testController", function($scope, MessageController){
         var id = 'id';
+        var accept = '*/*';
 
 
-		var result = MessageController.getViewMessage(id);
+		var result = MessageController.getViewMessage(id, accept);
         //Function call returns a promise
         result.then(function(success){
 			//success case
@@ -322,15 +291,16 @@ function getViewMessage(id)
 
 
 ```javascript
-function createSendSMSMessage(senderId, mobileNumber, message)
+function createSendSMSMessage(accept, senderId, mobileNumber, message)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| senderId |  ``` Required ```  ``` DefaultValue ```  | Sender id to send the message from. |
-| mobileNumber |  ``` Required ```  ``` DefaultValue ```  | The mobile number supposed to receive the message. |
-| message |  ``` Required ```  ``` DefaultValue ```  | Message text. |
+| accept |  ``` Required ```  | TODO: Add a parameter description |
+| senderId |  ``` Required ```  | Sender id to send the message from. |
+| mobileNumber |  ``` Required ```  | The mobile number supposed to receive the message. |
+| message |  ``` Required ```  | Message text. |
 
 
 
@@ -340,12 +310,13 @@ function createSendSMSMessage(senderId, mobileNumber, message)
 
 
 	app.controller("testController", function($scope, MessageController){
+        var accept = 'Accept';
         var senderId = 'senderId';
         var mobileNumber = 'mobileNumber';
         var message = 'message';
 
 
-		var result = MessageController.createSendSMSMessage(senderId, mobileNumber, message);
+		var result = MessageController.createSendSMSMessage(accept, senderId, mobileNumber, message);
         //Function call returns a promise
         result.then(function(success){
 			//success case
@@ -369,7 +340,7 @@ function createSendSMSMessage(senderId, mobileNumber, message)
 The singleton instance of the ``` SenderController ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, SenderController){
+	app.controller("testController", function($scope, SenderController, Response200, Response2001){
 	});
 ```
 
@@ -379,13 +350,14 @@ The singleton instance of the ``` SenderController ``` class can be accessed via
 
 
 ```javascript
-function getSenderNameDetails(id)
+function getSenderNameDetails(id, accept)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| id |  ``` Required ```  ``` DefaultValue ```  | The sender id you want its details |
+| id |  ``` Required ```  | TODO: Add a parameter description |
+| accept |  ``` Required ```  | TODO: Add a parameter description |
 
 
 
@@ -395,10 +367,11 @@ function getSenderNameDetails(id)
 
 
 	app.controller("testController", function($scope, SenderController){
-        var id = 'id';
+        var id = 'sender-id';
+        var accept = '*/*';
 
 
-		var result = SenderController.getSenderNameDetails(id);
+		var result = SenderController.getSenderNameDetails(id, accept);
         //Function call returns a promise
         result.then(function(success){
 			//success case
@@ -419,13 +392,15 @@ function getSenderNameDetails(id)
 
 
 ```javascript
-function createSenderName(senderName)
+function createSenderName(accept, contentType, body)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| senderName |  ``` Required ```  ``` DefaultValue ```  | Name you want to register as Sender Name |
+| accept |  ``` Required ```  | TODO: Add a parameter description |
+| contentType |  ``` Required ```  | TODO: Add a parameter description |
+| body |  ``` Required ```  | TODO: Add a parameter description |
 
 
 
@@ -434,11 +409,13 @@ function createSenderName(senderName)
 ```javascript
 
 
-	app.controller("testController", function($scope, SenderController){
-        var senderName = 'senderName';
+	app.controller("testController", function($scope, SenderController, Response200){
+        var accept = 'text/plain';
+        var contentType = 'text/plain';
+        var body = 'Your sender name';
 
 
-		var result = SenderController.createSenderName(senderName);
+		var result = SenderController.createSenderName(accept, contentType, body);
         //Function call returns a promise
         result.then(function(success){
 			//success case
@@ -459,18 +436,26 @@ function createSenderName(senderName)
 
 
 ```javascript
-function getAllSenders()
+function getAllSenders(accept)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| accept |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
 ```javascript
 
 
-	app.controller("testController", function($scope, SenderController){
+	app.controller("testController", function($scope, SenderController, Response2001){
+        var accept = '*/*';
 
 
-		var result = SenderController.getAllSenders();
+		var result = SenderController.getAllSenders(accept);
         //Function call returns a promise
         result.then(function(success){
 			//success case
@@ -494,7 +479,7 @@ function getAllSenders()
 The singleton instance of the ``` BalanceController ``` class can be accessed via Dependency Injection.
 
 ```js
-	app.controller("testController", function($scope, BalanceController){
+	app.controller("testController", function($scope, BalanceController, Response2002){
 	});
 ```
 
@@ -504,18 +489,26 @@ The singleton instance of the ``` BalanceController ``` class can be accessed vi
 
 
 ```javascript
-function getBalance()
+function getBalance(accept)
 ```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| accept |  ``` Required ```  | TODO: Add a parameter description |
+
+
 
 #### Example Usage
 
 ```javascript
 
 
-	app.controller("testController", function($scope, BalanceController){
+	app.controller("testController", function($scope, BalanceController, Response2002){
+        var accept = 'text/plain';
 
 
-		var result = BalanceController.getBalance();
+		var result = BalanceController.getBalance(accept);
         //Function call returns a promise
         result.then(function(success){
 			//success case
